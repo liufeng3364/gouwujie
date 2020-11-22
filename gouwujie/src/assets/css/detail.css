@@ -1,0 +1,133 @@
+#GoodCon{
+    width: 100vw;
+    font-size: 14px;
+}
+.swiper-container{
+    width:100%;
+    height:350px;
+    margin-top: 44px;
+}
+.swiper-container img{
+    width: 100%
+}
+.goodColumns,.goodAdr{
+    display: flex;
+    
+}
+.goodColumns span,.goodAdr span{
+    flex: 1;
+}
+.title{
+    font-size:20px;
+}
+.price{
+    font-size: 22px;
+    color: var(--high-light);
+}
+.instructions{
+    display: flex;
+}
+.instructions span{
+    font-size: 13px;
+    text-align: center;
+}
+.instructions img{
+    vertical-align: top;
+    width: 16px;
+    flex:1
+
+}
+.detailBottomBar{
+    width: 100vw;
+    position: fixed;
+    height: 50px;
+    bottom:0;
+    text-align: center;
+    background:#fff;
+    display: flex;
+    z-index: 12;
+    font-size: 14px;
+}
+.detailBottomBar span{
+    flex: 1;
+    padding-top: 10px;
+}
+.shop{
+    line-height: 35px;
+    background-color: var(--color-tint);
+}
+.buy{
+    line-height: 35px;
+    color: #fff;
+    background-color: orange;
+}
+.goodContent{
+    height: 85vh;
+    border-bottom: 2px solid #eee;
+}
+.paramTitle,.GoodDetailTitle{
+    font-size: 22px;
+    font-weight: bold;
+
+}
+.goodParams{
+    width: 100vw;
+    height: 85vh;
+    border-bottom: 2px solid #eee;
+}
+th{
+    font-weight: normal;
+}
+table{
+    width: 95vw;
+    text-align: center;
+    border: solid 1px #eee;
+    padding: 5px;
+    margin: 0 auto;
+}
+.promotions{
+    display: flex;
+}
+.promotions span{
+    flex:1;
+}
+.constru{
+    font-size: 14px;
+}
+.shopInfo{
+    display: flex;
+    text-align: center;
+}
+.shopInfo-left,.shopInfo-right{
+    flex: 1;
+}
+.shopInfo img{
+    width: 76px;
+}
+.GoodDetail{
+    width:100vw;
+    height: 760vh;
+    border: solid 1px #eee;
+}
+.GoodDetailShow{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.other{
+    width:40vw;
+    padding-left:20px;
+    height: 50vh;
+    float: left;
+}
+.GoodDetailShow img{
+    width: 60vw;
+    height: 45vh;
+    float: right;
+    padding-right: 10px;
+}
+.commend{
+    width: 100vw;
+    height: 20vh;
+}
