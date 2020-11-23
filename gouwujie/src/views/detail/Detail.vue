@@ -6,8 +6,9 @@
             </template>
             <template v-slot:center>
                 <div class="title">
-                    <div v-for="(title,index) in titles" :key="{title,index}" :class="{active:index==currentIndex}" @click="itemClick(index)">
-                        {{title}}
+                    <div v-for="(title,index) in titles" :key="title" 
+                    @click="itemClick(index)">
+                        <a :href="'#'+index" :class="{active:index==currentIndex}">{{title}}</a>
                     </div>
                 </div>
             </template>
@@ -16,7 +17,7 @@
         :goodColumns="goodColumns" :instructions="instructions" 
         :goodParam="goodParam" :itemParamSet="itemParamSet"
         :itemParamsRule="itemParamsRule" :shopInfo="shopInfo"
-        :skuInfo="skuInfo" :promotions="promotions"
+        :skuInfo="skuInfo" :promotions="promotions" :commentsUser="commentsUser"
         ></GoodCon>
 
     </div>    
@@ -35,7 +36,8 @@ export default {
     },
     data(){
         return{
-            titles:['商品','参数','详情','推荐'],
+            titles:['商品','参数','详情','评价'],
+            anchors:['#goodContent','#goodParams','#GoodDetail','#comments'],
             iid:null,
             goodColumns:[],
             currentIndex:0,
@@ -46,16 +48,18 @@ export default {
             itemParamsRule:[],
             shopInfo:[],
             skuInfo:[],
-            promotions:[]
+            promotions:[],
+            commentsUser:[]
         }
     },
     created(){
         this.iid=this.$route.params.iid
         this.getDetailMessage(this.iid)
+        this.tabBarIsChange()
     },
     methods:{
         goBack(){
-            this.$router.back()
+            this.$router.push('/home')
         },
         getDetailMessage(iid){
             getDetailMessage(iid).then(res=>{
@@ -67,10 +71,14 @@ export default {
                 this.shopInfo=res.result.shopInfo
                 this.skuInfo=res.result.skuInfo
                 this.promotions=res.result.promotions
+                this.commentsUser=res.result.rate.list
             })
         },
         itemClick(index){
             this.currentIndex=index
+        },
+        tabBarIsChange(){
+            this.$store.commit('tabBarIsChange',false)
         }
     }
 }

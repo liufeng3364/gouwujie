@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="GoodsList">
         <GoodsListItem v-for="item in goods" :goods-item="item" :key="item"></GoodsListItem>
     </div>
 </template>
@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style scoped>
-
+    #GoodsList{
+        width: 100vw;
+    }
 </style>

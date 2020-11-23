@@ -28,7 +28,7 @@ export default {
     .goods-item{
         width: 50vw;
         float: left;
-        height: 380px;
+        /* height: 380px; */
     }
     .goods-item img{
         width: 50vw;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view/>
-    <Tabbar></Tabbar>
+    <Tabbar v-if="$store.state.tabBarIsShow"></Tabbar>
   </div>
 
 </template>

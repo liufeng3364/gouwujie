@@ -1,6 +1,6 @@
 <template>
     <div id="GoodCon">
-        <div class="goodContent">
+        <div id="0" class="goodContent">
             <Swiper>
                 <template v-slot:SwiperContent>
                     <div class="swiper-slide" v-for="item in goodParam.topImages" :key="item">
@@ -46,7 +46,7 @@
                 
             </div>
         </div><br>
-        <div class="goodParams">
+        <div id="1" class="goodParams">
             <p class='paramTitle'>店铺介绍</p><br>
             <div class="shopInfo">
                 <img :src="shopInfo.shopLogo" alt="">
@@ -78,26 +78,27 @@
             </table><br>
             <p class="constru">※ 以上尺寸为实物人工测量，因测量当时不同会有1-2cm误差，相关数据仅作参考，以收到实物为准。</p>
        </div><br>
-       <div class="GoodDetail">
+       <div id="2" class="GoodDetail">
            <div class="GoodDetailTitle">穿着效果</div><br>
            <div class="GoodDetailShow">
                 <div v-for="item in skuInfo.skus" :key="item">
-                    <div class="other">
-                        <span>价格：{{skuInfo.priceRange}}</span><br>
-                        <span>尺码：{{item.size}}</span><br>
-                        <span>尺码编号：{{item.sizeId}}</span><br>
-                        <span>类型：{{item.style}}</span><br>
-                        <span>类型编号：{{item.styleId}}</span><br>
-                        <span>库存：{{item.stock}}</span><br>
-                        <span>库存编号：{{item.stockId}}</span><br>
-                    </div>
                     <img :src="item.img">
                 </div><br>
            </div>
 
-       </div>
-       <div class="commend">
-
+       </div>  
+       <div id="3" class="comments">
+           <p class="commentsTitle">商品评价</p><br>
+           <div class="comCont" v-for="item in commentsUser" :key="item">
+               <div class="comUser" >
+                   <img :src="item.user.avatar" alt="">
+                   <ul>
+                       <li>{{item.user.uname}}</li>
+                       <li>时间：{{item.created}} | 产品：{{item.style}}</li>
+                   </ul>
+               </div><br>
+               <p>{{item.content}}</p>        
+           </div>
        </div>
     </div>
 </template>
@@ -132,11 +133,14 @@ export default {
         },
         shopInfo:{
             type:Array
-        },
+        }, 
         skuInfo:{
             type:Array
         },
         promotions:{
+            type:Array
+        },
+        commentsUser:{
             type:Array
         }
     },
@@ -151,6 +155,10 @@ export default {
     #GoodCon{
         width: 100vw;
         font-size: 14px;
+    }
+    li{
+        list-style: none;
+        margin: 0 20px;
     }
     .swiper-container{
         width:100%;
@@ -212,17 +220,17 @@ export default {
         background-color: orange;
     }
     .goodContent{
-        height: 85vh;
+        /* height: 85vh; */
         border-bottom: 2px solid #eee;
     }
-    .paramTitle,.GoodDetailTitle{
+    .paramTitle,.GoodDetailTitle,.commentsTitle{
         font-size: 22px;
         font-weight: bold;
-
+        margin-top: 20px;
     }
     .goodParams{
         width: 100vw;
-        height: 85vh;
+        margin-top: 20px;
         border-bottom: 2px solid #eee;
     }
     th{
@@ -256,7 +264,6 @@ export default {
     }
     .GoodDetail{
         width:100vw;
-        height: 760vh;
         border: solid 1px #eee;
     }
     .GoodDetailShow{
@@ -265,20 +272,19 @@ export default {
         justify-content: space-around;
         flex-wrap: wrap;
     }
-    .other{
-        width:40vw;
-        padding-left:20px;
-        height: 50vh;
-        float: left;
-    }
     .GoodDetailShow img{
-        width: 60vw;
-        height: 45vh;
-        float: right;
-        padding-right: 10px;
+        width: 90vw;
     }
-    .commend{
-        width: 100vw;
+    .comCont{
+        width: 90vw;
         height: 20vh;
+        margin: 0 auto;
+    }
+    .comUser img{
+        width: 40px;
+    }
+    .comUser{
+        display: flex;
+        
     }
 </style>

@@ -11,7 +11,7 @@
           <a :href="item.link">
             <img :src="item.image" alt="">
           </a>
-        </div>
+        </div><br>
       </template>
     </Swiper>
     <!--    <推荐></推荐>-->
@@ -58,7 +58,7 @@
       this.getHomeGoods('new')
       this.getHomeGoods('sell')
       // console.log(this.goods)
-      
+      this.tabBarIsChange()
     },
     methods:{
       getHomeMultidata(){
@@ -77,6 +77,9 @@
       tabClick(index){
         // this.currentType=['pop','new','sell'][index]
         this.currentIndex=index
+      },
+      tabBarIsChange(){
+        this.$store.commit('tabBarIsChange',true)
       }
     }
   }
