@@ -14,12 +14,12 @@
             </template>
         </NavBar>
         <GoodCon 
-        :goodColumns="goodColumns" :instructions="instructions" 
-        :goodParam="goodParam" :itemParamSet="itemParamSet"
-        :itemParamsRule="itemParamsRule" :shopInfo="shopInfo"
-        :skuInfo="skuInfo" :promotions="promotions" :commentsUser="commentsUser"
+            :goodColumns="goodColumns" :instructions="instructions" 
+            :goodParam="goodParam" :itemParamSet="itemParamSet"
+            :itemParamsRule="itemParamsRule" :shopInfo="shopInfo"
+            :skuInfo="skuInfo" :promotions="promotions" :commentsUser="commentsUser"
+            :shopParamMes="shopParamMes"
         ></GoodCon>
-
     </div>    
 </template>
 
@@ -49,7 +49,8 @@ export default {
             shopInfo:[],
             skuInfo:[],
             promotions:[],
-            commentsUser:[]
+            commentsUser:[],
+            shopParamMes:[]
         }
     },
     created(){
@@ -72,6 +73,7 @@ export default {
                 this.skuInfo=res.result.skuInfo
                 this.promotions=res.result.promotions
                 this.commentsUser=res.result.rate.list
+                this.shopParamMes=res.result
             })
         },
         itemClick(index){

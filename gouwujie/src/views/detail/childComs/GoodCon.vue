@@ -10,18 +10,18 @@
             </Swiper><br>
             <div class="detailBottomBar">
             <span>
-                <img src="../../../assets//img//tabbar/service.svg" alt=""><br>
+                <img src="@/assets//img//tabbar/service.svg" alt=""><br>
                 客服
             </span>
             <span>
-                <img src="../../../assets//img//tabbar/store.svg" alt=""><br>
+                <img src="@/assets//img//tabbar/store.svg" alt=""><br>
                 店铺
             </span>
             <span>
-                <img src="../../../assets//img//tabbar/collection.svg" alt=""><br>
+                <img src="@/assets//img//tabbar/collection.svg" alt=""><br>
                 收藏
             </span>
-            <span class="shop" @click="shopClick()">
+            <span class="shop" @click="shopClick(shopParamMes)">
                 加入购物车
             </span>
             <span class="buy">
@@ -29,7 +29,7 @@
             </span>
             </div>
             <p class="title">{{goodParam.title}}</p><br>
-            <p class="price">{{goodParam.price}}</p><br>
+            <p class="price">￥{{goodParam.lowNowPrice}}</p><br>
             <div class="goodColumns">
                 <span v-for="item in goodColumns" :key="item">{{item}}</span>
             </div><br>
@@ -111,7 +111,7 @@ export default {
     },
     data(){
         return{
-            // instructions:['延误必赔','退货补运费','全国包邮','7天无理由退货']
+            
         }
     },
     props:{
@@ -142,11 +142,16 @@ export default {
         },
         commentsUser:{
             type:Array
+        },
+        shopParamMes:{
+            type:Array
         }
     },
     methods:{
-        shopClick(){
-            alert("加入购物车成功")
+        shopClick(shopParamMes){
+            console.log("加购")
+            console.log(shopParamMes)
+            this.$store.commit('getGoodParam',shopParamMes)
         }
     }
 }

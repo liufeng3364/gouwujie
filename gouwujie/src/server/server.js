@@ -32,8 +32,21 @@ app.get('/home/tabdata', function (req, res) {
   })
 })
 app.get('/home/homedata', function (req, res) {
+  // console.log(req.query)
   //判断参数
   const path=`./data/homedata/${req.query.type}${req.query.page}.json`
+  // console.log(path)
+  fs.readFile(path, function (err, data) {
+    if (err) {
+      return res.send('err')
+    }
+    res.send((JSON).parse(data))
+  })
+})
+app.get('/detail', function (req, res) {
+  // console.log(req.query)
+  //判断参数
+  const path=`./data/homedata/${req.query.iid}.json`
   // console.log(path)
   fs.readFile(path, function (err, data) {
     if (err) {
