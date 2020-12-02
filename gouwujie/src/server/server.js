@@ -36,19 +36,19 @@ app.get('/home/homedata', function (req, res) {
   //判断参数
   const path=`./data/homedata/${req.query.type}${req.query.page}.json`
   // console.log(path)
-  fs.readFile(path, function (err, data) {
+  fs.readFile(path, (err, data)=>{
     if (err) {
       return res.send('err')
     }
     res.send((JSON).parse(data))
   })
 })
-app.get('/detail', function (req, res) {
+app.get('/detail', (req,res)=>{
   // console.log(req.query)
   //判断参数
   const path=`./data/homedata/${req.query.iid}.json`
   // console.log(path)
-  fs.readFile(path, function (err, data) {
+  fs.readFile(path, (err, data)=>{
     if (err) {
       return res.send('err')
     }
@@ -56,7 +56,21 @@ app.get('/detail', function (req, res) {
   })
 })
 
+app.get('/category',(req,res)=>{
+  const path='./data/categorydata/category.json'
+  fs.readFile(path,(err,data)=>{
+  if(err) res.send(err)
+  res.send((JSON).parse(data))
+ })
+})
 
+app.get('/category',(req,res)=>{
+  const path='./data/categorydata/subcategory582.json'
+  fs.readFile(path,(err,data)=>{
+  if(err) res.send(err)
+  res.send((JSON).parse(data))
+ })
+})
 
 app.listen(8000,function () {
 console.log('server is running...')
