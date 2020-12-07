@@ -1,7 +1,9 @@
 <template>
     <div class="leftBar">
        <ul>
-           <li v-for="item in leftList" :key="item">
+           <li v-for="(item,index) in leftList" :key="(item,index)"
+           :class="{activeClass:index==currentIndex}"
+           @click="itemClick(item.maitKey,index)">
                {{item.title}}
            </li>
        </ul>
@@ -10,10 +12,21 @@
 <script>
 export default {
     name:'LeftBar',
+    data(){
+        return{
+            currentIndex:0
+        }
+    },
     props:{
         leftList:{
             type:Array,
             default:[]
+        }
+    },
+    methods:{
+        itemClick(maitKey,index){
+            this.currentIndex=index,
+            this.$emit("itemClick",maitKey)
         }
     }
 }
@@ -32,5 +45,10 @@ export default {
         list-style: none;
         padding: 18px 10px;
         font-size: var(--font-size);
+    }
+    .activeClass{
+        color: var(--color-tint);
+        font-weight: bold;
+        background: #fff;
     }
 </style>

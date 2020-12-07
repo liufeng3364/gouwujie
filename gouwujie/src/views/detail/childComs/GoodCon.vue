@@ -10,15 +10,15 @@
             </Swiper><br>
             <div class="detailBottomBar">
             <span>
-                <img src="@/assets//img//tabbar/service.svg" alt=""><br>
+                <img src="@/assets/img/service.svg" alt=""><br>
                 客服
             </span>
             <span>
-                <img src="@/assets//img//tabbar/store.svg" alt=""><br>
+                <img src="@/assets/img/store.svg" alt=""><br>
                 店铺
             </span>
             <span>
-                <img src="@/assets//img//tabbar/collection.svg" alt=""><br>
+                <img src="@/assets/img/collection.svg" alt=""><br>
                 收藏
             </span>
             <span class="shop" @click="shopClick(shopParamMes)">

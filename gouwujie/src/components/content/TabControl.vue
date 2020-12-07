@@ -19,12 +19,7 @@
     },
     props:{
       titles:{
-        type:Array,
-        default(){
-          return[
-
-          ]
-        }
+        type:Array
       }
     },
     methods:{
